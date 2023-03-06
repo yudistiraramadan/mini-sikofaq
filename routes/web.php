@@ -19,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('authentication.login');
 // });
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware' => ['auth', 'ceklevel:1']], function(){
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard_admin');
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:2']], function(){
-    Route::get('/dashboard', [PetugasController::class, 'dashboard']);
+    Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard_petugas');
 });
 
 // Route::get('/dashboard', function(){
