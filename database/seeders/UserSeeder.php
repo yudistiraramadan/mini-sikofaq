@@ -19,15 +19,15 @@ class UserSeeder extends Seeder
         User::create([
             'id' => '1',
             'role_id' => '1',
-            'name' => 'Yudistira',
-            'email' => 'yudis8913@gmail.com',
+            'name' => 'Sri Noviana Mukti',
+            'email' => 'ana@gmail.com',
             'password' => Hash::make('tes'),
         ]);
         User::create([
             'id' => '2',
             'role_id' => '2',
-            'name' => 'Bagdo Olivin',
-            'email' => 'olivin@gmail.com',
+            'name' => 'Yudistira Ramadan Kalimasada',
+            'email' => 'yudis@gmail.com',
             'password' => Hash::make('tes'),
         ]);
     }

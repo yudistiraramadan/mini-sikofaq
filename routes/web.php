@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,16 @@ Route::get('/', [AuthController::class, 'index']);
 Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function(){
-    return view('layouts.main');
+
+Route::group(['middleware' => ['auth', 'ceklevel:1']], function(){
+    Route::get('/dashboard', [AdminController::class, 'dashboard']);
 });
+
+Route::group(['middleware' => ['auth', 'ceklevel:2']], function(){
+    Route::get('/dashboard', [PetugasController::class, 'dashboard']);
+});
+
+// Route::get('/dashboard', function(){
+//     return view('layouts.main');
+// });
+

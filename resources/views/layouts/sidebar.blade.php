@@ -40,6 +40,17 @@
             <span class="badge badge-info right">6</span>
           </p>
         </a>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Daftar User
+              </p>
+            </a>
+          </li>
+
+
         <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
