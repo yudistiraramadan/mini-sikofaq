@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,11 +27,12 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth', 'ceklevel:1']], function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard_admin');
+    Route::get('/daftar-donatur', [DonaturController::class, 'index'])->name('daftar-donatur');
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:2']], function(){
-    Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard_petugas');
-});
+// Route::group(['middleware' => ['auth', 'ceklevel:2']], function(){
+//     Route::get('/dashboard', [PetugasController::class, 'dashboard'])->name('dashboard_petugas');
+// });
 
 // Route::get('/dashboard', function(){
 //     return view('layouts.main');
